@@ -4,10 +4,10 @@ import express from 'express'
 // const mainController = require('../controllers//mainController');
 import mainController from '../controllers/mainController.js'
 
-const router = express.Router();
+const mainRouter = express.Router();
 
 // ---- Rutas dedicadas para navegacion general ---- //
-router.get('/', mainController.index);
+mainRouter.get('/', mainController.index);
 
 // module.exports = router
-export default router
+export default mainRouter

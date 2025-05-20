@@ -1,7 +1,10 @@
 import dotenv from 'dotenv'
 import express from 'express'
 import cors from './middleware/cors.js'
-import mainRoutes from './routes/main.js'
+import mainRouter from './routes/mainRouter.js'
+import loginRouter from './routes/loginRouter.js'
+import ongRouter from './routes/ongRouter.js'
+import patientRouter from './routes/patientRouter.js'
 const dateActual = new Date()
 dotenv.config()
 
@@ -21,8 +24,12 @@ app.use(express.static("./src/public"));
 
 
 // ------- Direcciones raises de los proyectos ------- //
-app.use("/", mainRoutes);
+app.use("/", mainRouter);
+app.use("/login",loginRouter)
+app.use("/patient", patientRouter);
+app.use("/ong", ongRouter);
 app.use((req, res) => {
+
   res.status(404).send("Endpoint wrong, sorry can't find that!")
 })
 
